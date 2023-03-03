@@ -1,0 +1,292 @@
+/*
+font-family: 'Open Sans', sans-serif;
+font-family: 'Oswald', sans-serif;
+*/
+/*Стандарная структура для корректной настройки свойств*/
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    padding: 0;
+    margin: 0;
+}
+
+/*Сброс отступов и стандартная настройка текста*/
+body {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+}
+
+/*Настройка блока с верхним меню*/
+.container {
+    max-width: 1110px;
+    margin: 0 auto;
+}
+
+/*Создание переменных*/
+:root {
+    --acent-color: #F7654A;
+    --dark-color: #404149;
+    --grey-color: #999999;
+    --white-color: #FFFFFF;
+    --black-color: #000000;
+}
+
+.text-h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 36px;
+    text-transform: uppercase;
+}
+
+.text-h3 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.text-h4 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.text-p {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+}
+
+.text-p-reviews {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.header {
+    min-height: 740px;
+    background-image: url(/img/first_BG.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header_title {
+    padding-top: 20px;
+    /*Отступ внутри блока от верхней границы*/
+    margin-bottom: 112px;
+    /*Отступ от верхнего блока до заголовка*/
+    display: flex;
+    /*Элементы выстраиваются в одну линию*/
+    justify-content: space-between;
+    /*Расставляет элементы по разные стороны блока*/
+    align-items: flex-end;
+    /*Выравнивает элементы по нижней линии*/
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+}
+
+.burger {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    /*По-умолчанию при наведении курсор будет превращаться в руку*/
+    padding: 0;
+    background-color: var(--acent-color);
+    border: none;
+    /*Убрать рамку у кнопки*/
+    display: flex;
+    /*Элементы выстраиваются в одну линию*/
+    flex-direction: column;
+    /*Элементы выстраиваются колонкой друг под другом*/
+    justify-content: center;
+    /*Выравнивает по центру*/
+    align-items: center;
+    /*Выравнивает по центру*/
+}
+
+.burger_line {
+    display: block;
+    /*Элемент генерирует «коробку» блочного уровня. Все элементы на этом уровне начинаются с новой строки (вертикально)*/
+    width: 21px;
+    /*Длина каждой линии*/
+    height: 3px;
+    /*Ширина каждой линии*/
+    background-color: #FFFFFF;
+    /*Цвет линий*/
+    margin: 3px;
+    /*Отступ линий друг от друга*/
+}
+
+.burger_line:last-child {
+    margin-bottom: 0;
+}
+
+.h1 {
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 95px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    max-width: 734px;
+    /*Ограничиваем ширину текста*/
+    margin: 0 auto 17px;
+    /*Выравниваем блок с текстом по центру*/
+    color: var(--white-color);
+}
+
+.h4 {
+    font-weight: 400;
+    max-width: 734px;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--white-color);
+    margin: 0 auto;
+}
+
+.about {
+    min-height: 1080px;
+
+    position: relative;
+    /*Нужно для того чтобы задвинуть этот элемент с помощью абсолютной позиции вверх на предыдущий блок 
+    (чтобы он на него накладывался)*/
+
+    padding-top: 250px;
+
+}
+
+.info {
+    position: absolute;
+
+    top: -150px;
+    /*Величина на которую элемент будет заступать на верхний блок*/
+    left: 50%;
+    transform: translateX(-50%);
+    /*Ручная настройка отступа блока от левого края(50%) и от правого края(-50%).
+    Так как из-за абсолюнтой позиции стили определяющие положение объекта не работают*/
+
+    max-width: 1110px;
+    min-height: 300px;
+
+    width: 100%;
+    padding: 57px 130px;
+    /*Отступы от внутренних границ блока*/
+
+    background-color: #F7F7F7;
+}
+
+.about_grid {
+    display: grid;
+    /*Создает выравнивает в табличный вид*/
+    grid-template-columns: repeat(4, 1fr);
+    /*Настройки колонок в таблице*/
+    gap: 30px;
+    /*Отступ между объектами в блоке*/
+    justify-items: center;
+    /*Вырванивание в каждой колонки по центру*/
+}
+
+.about_grid-item {
+    
+    /*background-color: #858691; Временный цвет выделения блока (Для удобного выравнивания)*/
+    text-align: center;
+    /*Выравнивание текста в колонке по центру*/
+    width: 190px;
+    /*Ширина блока в колонке*/
+}
+
+.about_h4 {
+    color: var(--acent-color);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 72px;
+    line-height: 107px;
+    text-align: center;
+    text-transform: uppercase;
+
+    margin-bottom: 5px;
+    /*Отступ от нижнего текста*/
+}
+
+.about_h5 {
+    color: var(--black-color);
+    font-family: 'Oswald';
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 53px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.about_p {
+    color: #999999;
+    font-family: 'Oswald';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+}
+
+@media screen and (max-width: 1280px) {
+    .about_grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        /*Настройки колонок в таблице*/
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .info{
+        position: relative;
+    }
+    .about_grid {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        /*Настройки колонок в таблице*/
+    }
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.text-h2 {
+}
+.text-p {
+}
+.text-h3 {
+}
+
+.project-h2 {
+}
+.about_flex {
+    
+}
+.about_flex-item {
+}
+.rectangle {
+}
+
+.project-h3 {
+}
+
+.project-p {
+}
